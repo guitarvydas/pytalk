@@ -1,2 +1,2 @@
 all:
-	python3 echo.py
+	python3 test.py
