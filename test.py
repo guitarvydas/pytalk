@@ -1,9 +1,14 @@
-from cat import Cat
+from echo import Echo
 from inputmessage import InputMessage
 
-test = Cat (None, 'cat tester')
+test = Echo (None, 'echo tester')
+
 message = InputMessage (xfrom=None, port='stdin', data='hello', trail=[])
 test.inject (message)
+
+message = InputMessage (xfrom=None, port='stdin', data='world', trail=[])
+test.inject (message)
+
 test.run ()
 print (test.outputs ())
 
