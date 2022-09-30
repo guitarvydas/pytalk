@@ -1,6 +1,6 @@
-from pipelineable import PipeLineAble
+from leaf import Leaf
 
-class Cat (PipeLineAble):
+class Cat (Leaf):
     def __init__ (self):
         super ().__init__ ()
 

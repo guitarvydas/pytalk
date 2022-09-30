@@ -1,5 +1,5 @@
 from senderqueue import SenderQueue
 
-class PipeLineAble (SenderQueue):
+class Leaf (SenderQueue):
     def outputs (self):
         return self.outputsFIFODictionary ()
