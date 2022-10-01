@@ -17,7 +17,6 @@ class SenderQueue:
         for key in resultdict:
             fifo = resultdict [key]
             r = fifo.asList ()
-            r.reverse () ## newest result first
             resultdict2 [key] = r
         return resultdict2
 
@@ -32,6 +31,7 @@ class SenderQueue:
         for key in resultdict:
             fifo = resultdict [key]
             r = fifo.asList ()
+            r.reverse () ## newest result first
             resultdict2 [key] = r
         return resultdict2
 
@@ -52,7 +52,3 @@ class SenderQueue:
 
     def outputQueue (self):
         return self._outputq.asList ()
-
-    def outputs (self):
-        return self.outputfFIFODictionary ()
-    
