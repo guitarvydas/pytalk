@@ -1,5 +1,7 @@
 from outputmessage import OutputMessage
-class Up:
+from connection import Connection
+
+class Up (Connection):
     # from output of Child to output of Container
 
     def __init__ (self, sender, receiver):
@@ -12,6 +14,6 @@ class Up:
         if (self._sender.match (inmessage.xfrom, inmessage.port)):
             receiver = self._receiver
             sender = self._sender
-            print (f'up {inmessage} ... {sender.name} -> {receiver.name}')
+            self.debug ('up', inmessage, sender, receiver)
             mappedMessage = OutputMessage (sender, receiver._port, inmessage.data, inmessage)
             receiver.enqueueOutput (mappedMessage)

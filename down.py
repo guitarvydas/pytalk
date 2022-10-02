@@ -1,5 +1,7 @@
 from inputmessage import InputMessage
-class Down:
+from connection import Connection
+
+class Down (Connection):
     # from input of Container to input of Child
 
     def __init__ (self, sender, receiver):
@@ -12,7 +14,7 @@ class Down:
         if (self._sender.match (inmessage.xfrom, inmessage.port)):
             receiver = self._receiver
             sender = self._sender
-            print (f'down {inmessage} ... {sender.name} -> {receiver.name}')
+            self.debug ('down', inmessage, sender, receiver)
             mappedMessage = InputMessage (sender, receiver._port, inmessage.data, inmessage)
             receiver.enqueueInput (mappedMessage)
 

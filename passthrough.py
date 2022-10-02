@@ -1,5 +1,7 @@
 from inputmessage import InputMessage
-class PassThrough:
+from connection import Connection
+
+class PassThrough (Connection):
     # from input of Container to input of Child
 
     def __init__ (self, sender, receiver):
@@ -12,6 +14,6 @@ class PassThrough:
         if (self._sender.match (inmessage.xfrom, inmessage.port)):
             receiver = self._receiver
             sender = self._sender
-            print (f'passThrough {inmessage} ... {sender.name} -> {receiver.name}')
+            self.debug ('pass-through', inmessage, sender, receiver)
             mappedMessage = OutputMessage (sender, receiver._port, inmessage.data, inmessage)
             receiver.enqueueOutput (mappedMessage)

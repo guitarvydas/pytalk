@@ -15,7 +15,7 @@ class HelloWorld (Container):
       self._children = [e1,e2]
       self._connections = [
           Down (Sender (self,'stdin'), Receiver (e1,'stdin')),
-          Across (Sender (e2,'stdout'), Receiver (e2,'stdin')),
+          Across (Sender (e1,'stdout'), Receiver (e2,'stdin')),
           Up (Sender (e2,'stdout'), Receiver (self,'stdout'))
       ]
       super ().__init__ (parent, name, self._children, self._connections)
