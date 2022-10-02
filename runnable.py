@@ -4,6 +4,7 @@ class Runnable:
         self._name = name
         self._top = top
 
+    @property
     def name (self):
         return self._name
 

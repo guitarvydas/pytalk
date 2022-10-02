@@ -1,8 +1,11 @@
-from inputmessage import InputMessage
-class DownConnect:
+from outputmessage import OutputMessage
+from connection import Connection
+
+class PassThrough (Connection):
     # from input of Container to input of Child
 
     def __init__ (self, sender, receiver):
+        super ().__init__ ()
         self._sender = sender
         self._receiver = receiver
 
@@ -12,6 +15,6 @@ class DownConnect:
         if (self._sender.match (inmessage.xfrom, inmessage.port)):
             receiver = self._receiver
             sender = self._sender
-            print (f'down {inmessage} ... {sender.name ()} -> {receiver.name ()}')
-            mappedMessage = InputMessage (self, receiver._port, inmessage.data, inmessage)
-            receiver.enqueueInput (mappedMessage)
+            self.debug ('pass-through', inmessage, sender, receiver)
+            mappedMessage = OutputMessage (sender, receiver._port, inmessage.data, inmessage)
+            receiver.enqueueOutput (mappedMessage)

@@ -1,19 +1,11 @@
-from echo import Echo
-from inputmessage import InputMessage
+from helloworld import HelloWorldSequential
+from helloworld import HelloWorldConcurrent
+from topmessage import TopMessage
 
-e1 = Echo (None, 'echo tester 1')
+hw = HelloWorldSequential (None, 'hw')
+hw.start (port='stdin', data='sequential hello world')
+print (hw.outputs ())
 
-message = InputMessage (xfrom=None, port='stdin', data='hello', trail=[])
-e1.inject (message)
-
-e2 = Echo (None, 'echo tester 2')
-
-message = InputMessage (xfrom=None, port='stdin', data='world', trail=[])
-e2.inject (message)
-
-e1.run ()
-print (e1.outputs ())
-
-e2.run ()
-print (e2.outputs ())
-
+hw = HelloWorldConcurrent (None, 'hw')
+hw.start (port='stdin', data='concurrent hello world')
+print (hw.outputs ())

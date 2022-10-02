@@ -1,8 +1,11 @@
 from inputmessage import InputMessage
-class RouteConnect:
+from connection import Connection
+
+class Across (Connection):
     # from input of Container to input of Child
 
     def __init__ (self, sender, receiver):
+        super ().__init__ ()
         self._sender = sender
         self._receiver = receiver
 
@@ -12,6 +15,6 @@ class RouteConnect:
         if (self._sender.match (inmessage.xfrom, inmessage.port)):
             receiver = self._receiver
             sender = self._sender
-            print (f'route {inmessage} ... {sender.name ()} -> {receiver.name ()}')
-            mappedMessage = InputMessage (self, receiver._port, inmessage.data, inmessage)
+            self.debug ('across', inmessage, sender, receiver)
+            mappedMessage = InputMessage (sender, receiver._port, inmessage.data, inmessage)
             receiver.enqueueInput (mappedMessage)

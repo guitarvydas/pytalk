@@ -14,6 +14,7 @@ class Sender:
     def xfrom (self):
         return self._xfrom
 
+    @property
     def name (self):
-        return f'{self._xfrom.name ()}/{self._port}'
+        return f'{self._xfrom.name}[{self._port}]'
 

@@ -13,14 +13,23 @@ class BaseMessage:
         return self._data
 
 class Message (BaseMessage):
-    def __init__ (self, xfrom, port, data, trail):
+    def __init__ (self, direction, xfrom, port, data, trail):
         super ().__init__ (data)
+        self._direction = direction
         self._xfrom = xfrom
         self._port = port
         self._trail = trail
+        self._excrutiatingDetail = False
 
     def __repr__ (self):
-        return "<??? (Error, this is a virtual message and should never be seen): '%s','%s'>" % (self.port, self.data)
+        if self._excrutiatingDetail:
+            nm = '?'
+            if self._xfrom:
+                nm = self._xfrom.name
+            return "{%s:'%s','%s', %s->%s}" % (self._direction, self.port, self.data, nm, self.trail)
+        else:
+            return "{'%s'}" % (self.port)
+
 
     @property
     def xfrom (self):

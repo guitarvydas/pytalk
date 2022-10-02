@@ -9,8 +9,9 @@ class Receiver:
 
     # _who is used internally only and is never accessed externally
     
+    @property
     def name (self):
-        return f'{self._who.name ()}/{self._port}'
+        return f'{self._who.name}[{self._port}]'
 
     def enqueueInput (self, message):
         self._who.enqueueInput (message)

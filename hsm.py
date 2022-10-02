@@ -6,6 +6,7 @@ class HSM:
         self._states = states
         self._exit = exit
         self._state = None
+        self._excrutiatingDetail = True
         self.enter ()
         
     def enter (self):
@@ -33,6 +34,8 @@ class HSM:
         self._state.handle (message)
 
     def step (self):
+        if self._excrutiatingDetail:
+            print (f'stepping {self.name} in state {self._state.name}')
         self._state.step ()
 
     def isBusy (self):
