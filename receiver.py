@@ -11,7 +11,7 @@ class Receiver:
     
     @property
     def name (self):
-        return f'{self._who.name ()}/{self._port}'
+        return f'{self._who.name}/{self._port}'
 
     def enqueueInput (self, message):
         self._who.enqueueInput (message)

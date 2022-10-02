@@ -2,7 +2,5 @@ from helloworld import HelloWorld
 from topmessage import TopMessage
 
 hw = HelloWorld (None, 'hw')
-message = TopMessage (port='stdin', data='hello world')
-hw.inject (message)
-hw.run ()
+hw.inject (port='stdin', data='hello world')
 print (hw.outputs ())

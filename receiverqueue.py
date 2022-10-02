@@ -5,7 +5,7 @@ class ReceiverQueue:
         self._inputq = FIFO ()
         self._debugHandling = True
         
-    def inject (self, message):
+    def injectMessage (self, message):
         self.enqueueInput (message)
 
     def handleIfReady (self):

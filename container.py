@@ -1,6 +1,7 @@
 from sender import Sender
 from inputmessage import InputMessage
 from outputmessage import OutputMessage
+from topmessage import TopMessage
 from porthandler import PortHandler
 from state import State
 from eh import EH
@@ -52,3 +53,8 @@ class Container (EH):
         for msg in outputs:
             for conn in self._connections:
                 conn.guardedDeliver (msg)
+
+    def inject (self, port, data):
+        m = TopMessage (xfrom=self, port=port, data=data)
+        self.injectMessage (m)
+        self.run()
