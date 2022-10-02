@@ -5,6 +5,7 @@ class PassThrough (Connection):
     # from input of Container to input of Child
 
     def __init__ (self, sender, receiver):
+        super ().__init__ ()
         self._sender = sender
         self._receiver = receiver
 

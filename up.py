@@ -5,6 +5,7 @@ class Up (Connection):
     # from output of Child to output of Container
 
     def __init__ (self, sender, receiver):
+        super ().__init__ ()
         self._sender = sender
         self._receiver = receiver
 
