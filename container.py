@@ -28,6 +28,7 @@ class Container (EH):
             connection.guardedDeliver (message)
         self.runToCompletion ()
 
+    @property
     def name (self):
         return self._name
     

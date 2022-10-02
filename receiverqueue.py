@@ -3,6 +3,7 @@ from fifo import FIFO
 class ReceiverQueue:
     def __init__ (self):
         self._inputq = FIFO ()
+        self._debugHandling = True
         
     def inject (self, message):
         self.enqueueInput (message)
@@ -10,6 +11,8 @@ class ReceiverQueue:
     def handleIfReady (self):
         if self.isReady ():
             m = self.dequeueInput ();
+            if self._debugHandling:
+                print (f'{self.name} handling {m}') 
             self.handle (m)
             return True
         else:

@@ -9,6 +9,7 @@ class Receiver:
 
     # _who is used internally only and is never accessed externally
     
+    @property
     def name (self):
         return f'{self._who.name ()}/{self._port}'
 
