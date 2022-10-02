@@ -1,4 +1,4 @@
-from inputmessage import InputMessage
+from outputmessage import OutputMessage
 from connection import Connection
 
 class PassThrough (Connection):

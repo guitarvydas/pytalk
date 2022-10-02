@@ -1,6 +1,6 @@
 class Connection:
     def __init__ (self):
-        self._excrutiatingDetail = False
+        self._excrutiatingDetail = True
         
     def debug (self, note, message, sender, receiver):
         if self._excrutiatingDetail:
