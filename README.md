@@ -8,3 +8,4 @@ The intention is to form a pipeline of components, and to have a Container compo
 
 Once the pipeline is working, it should be possible to write a Concurrent Container that runs the same Python components simultaneously, without changing the Leaf Components
 
+See https://github.com/chidiwilliams/buzz for inspiration on how spoken audio might be converted into text using OpenAI.

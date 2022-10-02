@@ -52,3 +52,7 @@ class SenderQueue:
 
     def outputQueue (self):
         return self._outputq.asList ()
+
+    def outputs (self):
+        return self.outputsFIFODictionary ()
+    

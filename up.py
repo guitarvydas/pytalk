@@ -1,5 +1,5 @@
 from outputmessage import OutputMessage
-class UpConnect:
+class Up:
     # from output of Child to output of Container
 
     def __init__ (self, sender, receiver):

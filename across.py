@@ -1,5 +1,5 @@
 from inputmessage import InputMessage
-class RouteConnect:
+class Across:
     # from input of Container to input of Child
 
     def __init__ (self, sender, receiver):

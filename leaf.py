@@ -17,6 +17,4 @@ class Leaf (EH):
     def noop (self):
         pass
     
-    def outputs (self):
-        return self.outputsFIFODictionary ()
     

@@ -1,5 +1,5 @@
 from inputmessage import InputMessage
-class PassThroughConnect:
+class Down:
     # from input of Container to input of Child
 
     def __init__ (self, sender, receiver):
@@ -12,6 +12,6 @@ class PassThroughConnect:
         if (self._sender.match (inmessage.xfrom, inmessage.port)):
             receiver = self._receiver
             sender = self._sender
-            print (f'passThrough {inmessage} ... {sender.name ()} -> {receiver.name ()}')
-            mappedMessage = OutputMessage (self, receiver._port, inmessage.data, inmessage)
-            receiver.enqueueOutput (mappedMessage)
+            print (f'down {inmessage} ... {sender.name ()} -> {receiver.name ()}')
+            mappedMessage = InputMessage (self, receiver._port, inmessage.data, inmessage)
+            receiver.enqueueInput (mappedMessage)
