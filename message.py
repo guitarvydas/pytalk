@@ -3,8 +3,11 @@
 # | Base                            -- bottom
 
 
-class BaseMessage:
+from debuggable import Debuggable
+
+class BaseMessage (Debuggable):
     def __init__ (self, data):
+        super ().__init__ ()
         self._data = data
     def __repr__ (self):
         return "%s" % (self._data)
@@ -19,7 +22,6 @@ class Message (BaseMessage):
         self._xfrom = xfrom
         self._port = port
         self._trail = trail
-        self._excrutiatingDetail = False
 
     def __repr__ (self):
         if self._excrutiatingDetail:
