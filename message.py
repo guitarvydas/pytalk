@@ -19,7 +19,7 @@ class Message (BaseMessage):
         self._xfrom = xfrom
         self._port = port
         self._trail = trail
-        self._excrutiatingDetail = True
+        self._excrutiatingDetail = False
 
     def __repr__ (self):
         if self._excrutiatingDetail:

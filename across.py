@@ -13,5 +13,5 @@ class Across:
             receiver = self._receiver
             sender = self._sender
             print (f'route {inmessage} ... {sender.name} -> {receiver.name}')
-            mappedMessage = InputMessage (self, receiver._port, inmessage.data, inmessage)
+            mappedMessage = InputMessage (sender, receiver._port, inmessage.data, inmessage)
             receiver.enqueueInput (mappedMessage)

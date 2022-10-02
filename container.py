@@ -57,4 +57,7 @@ class Container (EH):
     def inject (self, port, data):
         m = TopMessage (xfrom=self, port=port, data=data)
         self.injectMessage (m)
+
+    def start (self, port, data):
+        self.inject (port, data)
         self.run()

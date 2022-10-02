@@ -47,7 +47,7 @@ class SenderQueue:
         return self._outputq.dequeue ()
 
     def send (self, xfrom, portname, data, cause):
-        if trail:
+        if cause:
             breadcrumbs = [cause, cause.trail]
         else:
             breadcrumbs = [cause]
