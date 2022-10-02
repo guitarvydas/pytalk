@@ -8,7 +8,7 @@ from inputmessage import InputMessage
 
 from echo import Echo
 
-class HelloWorld (Container): 
+class HelloWorldSequential (Container): 
   def __init__ (self, parent, name):
       e1 = Echo (None, f'{name}/e1')
       e2 = Echo (None, f'{name}/e2')
@@ -16,6 +16,19 @@ class HelloWorld (Container):
       self._connections = [
           Down (Sender (self,'stdin'), Receiver (e1,'stdin')),
           Across (Sender (e1,'stdout'), Receiver (e2,'stdin')),
+          Up (Sender (e2,'stdout'), Receiver (self,'stdout'))
+      ]
+      super ().__init__ (parent, name, self._children, self._connections)
+    
+class HelloWorldConcurrent (Container): 
+  def __init__ (self, parent, name):
+      e1 = Echo (None, f'{name}/e1')
+      e2 = Echo (None, f'{name}/e2')
+      self._children = [e1,e2]
+      self._connections = [
+          Down (Sender (self,'stdin'), Receiver (e1,'stdin')),
+          Down (Sender (self,'stdin'), Receiver (e2,'stdin')),
+          Up (Sender (e1,'stdout'), Receiver (self,'stdout')),
           Up (Sender (e2,'stdout'), Receiver (self,'stdout'))
       ]
       super ().__init__ (parent, name, self._children, self._connections)
