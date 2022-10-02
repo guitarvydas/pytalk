@@ -46,8 +46,12 @@ class SenderQueue:
     def dequeueOutput (self):
         return self._outputq.dequeue ()
 
-    def send (self, xfrom, portname, data, causingMessage):
-        m = OutputMessage (xfrom, portname, data, causingMessage)
+    def send (self, xfrom, portname, data, cause):
+        if trail:
+            breadcrumbs = [cause, cause.trail]
+        else:
+            breadcrumbs = [cause]
+        m = OutputMessage (xfrom, portname, data, trail=breadcrumbs)
         self.enqueueOutput (m)
 
     def outputQueue (self):

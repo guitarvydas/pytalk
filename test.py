@@ -1,8 +1,8 @@
 from helloworld import HelloWorld
-from inputmessage import InputMessage
+from injectmessage import InjectMessage
 
 hw = HelloWorld (None, 'hw')
-message = InputMessage (xfrom=None, port='stdin', data='hello world', trail=[])
+message = InjectMessage (port='stdin', data='hello world')
 hw.inject (message)
 hw.run ()
 print (hw.outputs ())
