@@ -1,8 +1,8 @@
 from helloworld import HelloWorld
-from injectmessage import InjectMessage
+from topmessage import TopMessage
 
 hw = HelloWorld (None, 'hw')
-message = InjectMessage (port='stdin', data='hello world')
+message = TopMessage (port='stdin', data='hello world')
 hw.inject (message)
 hw.run ()
 print (hw.outputs ())
